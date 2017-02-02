@@ -1,0 +1,31 @@
+Pet Care Clinic Version 1.0 3rd,February 2017
+
+Introduction
+Pet Care is a website, developed using wordpress.org technology. 
+
+System Requirements:
+
+1. Xampp/Wampp/Lampp server should be installed on your    machine.
+
+Setup Overview
+------------------
+
+To successfully run the sample code, Please complete the following steps:
+
+1. Download and unzip the files.
+2. Copy the extracted folder into "htdocs" folder of xamp/wamp       server.   (C://xampp/htdocs)
+3. Create new database named as "wordpress" in database.
+4. Import "the wordpress.sql" file in the database.
+5. Execute following queries.
+   (a) UPDATE wp_options SET option_value = 
+       REPLACE(option_value, 'http://Localhost/word/wordpress',                      'http://new-domain.com') WHERE option_value NOT LIKE'
+       %{%';
+
+   (b) UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, 
+       'http://localhost/word/wordpress', 'http://new-domain.com') 
+       WHERE meta_value NOT LIKE '%{%';
+UPDATE wp_posts SET guid = REPLACE(guid,          'http://localhost/word/wordpress', 'http://new-domain.com'); 
+       //Replace "new-domain.com" with your new domain.                      
+ 
+6. Delete the .htaccess file from the project folder.
+
